@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6FE1DC5A-E704-435B-A276-5DDAA0912EA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>VizuSharp</RootNamespace>
+    <AssemblyName>VizuSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Mono.Cairo" />
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scales\IScale.cs" />
+    <Compile Include="Scales\LinearScale.cs" />
+    <Compile Include="Maths\Interpolate.cs" />
+    <Compile Include="Maths\Bounds.cs" />
+    <Compile Include="Maths\Uninterpolate.cs" />
+    <Compile Include="Maths\MathHelpers.cs" />
+    <Compile Include="Axes\Axis.cs" />
+    <Compile Include="Surfaces\ISurface.cs" />
+    <Compile Include="Surfaces\CairoSurface.cs" />
+    <Compile Include="Surfaces\GraphicStruct.cs" />
+    <Compile Include="Surfaces\SurfaceFactory.cs" />
+    <Compile Include="Surfaces\Color.cs" />
+    <Compile Include="Visualisations\DataPlot.cs" />
+    <Compile Include="Visualisations\ScatterPlot.cs" />
+    <Compile Include="Maths\EnumerableHelpers.cs" />
+    <Compile Include="DataProviders\Histogram.cs" />
+    <Compile Include="DataProviders\DataSet.cs" />
+    <Compile Include="Visualisations\BarPlot.cs" />
+    <Compile Include="DataProviders\DataProvider.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Folder Include="Axes\" />
+    <Folder Include="Scales\" />
+    <Folder Include="Maths\" />
+    <Folder Include="Surfaces\" />
+    <Folder Include="Visualisations\" />
+    <Folder Include="DataProviders\" />
+  </ItemGroup>
+</Project>
